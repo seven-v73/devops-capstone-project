@@ -30,4 +30,4 @@ spec:
         #!/bin/sh
         set -eu
         pip install --no-cache-dir -r requirements.txt
-        python -m unittest discover -v
+        nose2 -v

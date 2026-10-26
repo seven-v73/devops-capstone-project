@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: devops-capstone
+spec:
+  to:
+    kind: Service
+    name: devops-capstone
+  port:
+    targetPort: http
+  tls:
+    termination: edge

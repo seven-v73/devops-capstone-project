@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: devops-capstone
+spec:
+  workspaces:
+    - name: shared-workspace
+  tasks:
+    - name: cleanup
+      taskRef:
+        name: cleanup
+      workspaces:
+        - name: source
+          workspace: shared-workspace
+    - name: nose-test
+      runAfter: [cleanup]
+      taskRef:
+        name: nose-test
+      workspaces:
+        - name: source
+          workspace: shared-workspace

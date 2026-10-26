@@ -16,7 +16,7 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Lint
+      - name: Lint with flake8
         run: flake8 app.py test_app.py
-      - name: Test
-        run: python -m unittest discover -v
+      - name: Run unit tests with nose
+        run: nose2 -v
